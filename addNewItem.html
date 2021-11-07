@@ -16,36 +16,41 @@
                 </a>
                 <a class="header__basket-link" href="basket.html" aria-label="basket link">
                     <div class="header__basket">
-                        <basket-label data-items-count="4"></basket-label>
+                        <basket-label id="BasketElement" data-items-count="4"></basket-label>
                     </div>
                 </a>
             </div>
         </header>
         <div class="container">
-            <nav class="nav">
-                <a class="nav__link" href="#">Watches</a>
-                <a class="nav__link" href="#">Mobile phones</a>
-                <a class="nav__link" href="#">Audio</a>
-                <a class="nav__link" href="#">Game gadgets</a>
-                <a class="nav__link nav__link--add-new" href="addNewItem.html">Add new</a>
+            <nav id="PageNavigation" class="nav">
             </nav>
             <main>
                 <div class="main-wrapper">
-                    <form class="form" action="#" method="post" autocomplete="off">
+                    <form name="AddNewProductForm" class="form" action="#" method="post" autocomplete="off">
                         <fieldset class="form__fieldset">
                             <legend>New item</legend>
                             <label class="form-label">
                                 <span class="form-label__key">Name:</span> 
-                                <input class="form-label__input" type="text" name="Name">
+                                <input class="form-label__input" type="text" name="Name" maxlength="20" required>
                             </label>
                             <label class="form-label">
                                 <span class="form-label__key">Description:</span> 
-                                <textarea class="form-label__input" name="Description" rows="5">
+                                <textarea class="form-label__input" name="Description" rows="5" maxlength="300" required>
                                 </textarea>
                             </label>
                             <label class="form-label">
+                                <span class="form-label__key">Category:</span> 
+                                <select class="form-label__input" name="Category" required>
+                                    <option></option>
+                                    <option value="1">Watches</option>
+                                    <option value="2">Mobile phones</option>
+                                    <option value="3">Audio</option>
+                                    <option value="4">Game gadgets</option>
+                                </select>
+                            </label>
+                            <label class="form-label">
                                 <span class="form-label__key">Image:</span> 
-                                <input class="form-label__input" type="file" name="Image">
+                                <input class="form-label__input" type="file" name="Image" required>
                             </label>
 
                             <div class="form__buttons-div">
@@ -64,6 +69,7 @@
         </footer>
     </div>
     <script type="text/javascript" src="scripts/basket/basket.js"></script>
+    <script type="module" src="scripts/modules/mainAddNew.js"></script>
 </body>
 
 </html>

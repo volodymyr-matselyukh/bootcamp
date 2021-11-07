@@ -1,10 +1,20 @@
 import { getData } from "./dataStore.js";
-import { addToBasket } from "./basketLogic.js";
+import { addToBasket, getBasketItems } from "./basketLogic.js";
+import { getCurrentCategory } from "./sessionHelper.js";
 
 let listProducts = () => {
-    let items = getData();
+    let itemsInBasket = getBasketItems();
 
+    let categoryId = getCurrentCategory();
+    
+    let items = getData().filter(item => item.categoryId === categoryId);
+    
     let itemsContainer = document.getElementById("ItemsContainer");
+    let children = itemsContainer.querySelectorAll('.item') || [];
+    for(let i = 0 ; i < children.length; i ++){
+        itemsContainer.removeChild(children[i]);
+    }
+    
     let itemTemplate = document.querySelector("#ItemTemplate").content;
 
     items.forEach(item => {
@@ -12,11 +22,48 @@ let listProducts = () => {
         itemTemplateCopy.querySelector(".item-name").textContent = item.name;
         itemTemplateCopy.querySelector(".item-description").textContent = item.description;
         itemTemplateCopy.querySelector(".item-image").setAttribute("src", item.image);
-        itemTemplateCopy.querySelector(".item__button").addEventListener("click", () => {
+        
+        let addToBasketButton = itemTemplateCopy.querySelector(".item__button");
+        
+        addToBasketButton.addEventListener("click", (event) => {
             addToBasket(item.id);
-        })
+            event.currentTarget.textContent = "Added";
+            event.currentTarget.classList.remove("item__button--primary");
+            event.currentTarget.classList.add("item__button--added");
+        });
+
+        if(itemsInBasket.includes(item.id))
+        {
+            addToBasketButton.textContent = "Added";
+            addToBasketButton.classList.remove("item__button--primary");
+            addToBasketButton.classList.add("item__button--added");
+        }
+
         itemsContainer.appendChild(itemTemplateCopy);
     });
 }
 
-export {listProducts};
+let listBasketProducts = () => {
+    let itemsInBasket = getBasketItems();
+    
+    let items = getData().filter(item => itemsInBasket.includes(item.id));
+    
+    let itemsContainer = document.getElementById("ItemsContainer");
+    let children = itemsContainer.querySelectorAll('.item') || [];
+    for(let i = 0 ; i < children.length; i ++){
+        itemsContainer.removeChild(children[i]);
+    }
+    
+    let itemTemplate = document.querySelector("#ItemTemplate").content;
+
+    items.forEach(item => {
+        let itemTemplateCopy = itemTemplate.cloneNode(true);
+        itemTemplateCopy.querySelector(".item-name").textContent = item.name;
+        itemTemplateCopy.querySelector(".item-description").textContent = item.description;
+        itemTemplateCopy.querySelector(".item-image").setAttribute("src", item.image);
+
+        itemsContainer.appendChild(itemTemplateCopy);
+    });
+}
+
+export {listProducts, listBasketProducts};
