@@ -1,6 +1,6 @@
-import { getCategories } from "./dataStore.js";
-import { setCurrentCategory } from "./sessionHelper.js";
-import { listProducts } from "./dataVizualizer.js";
+const { getCategories } = require("./dataStore.js");
+const { setCurrentCategory } = require("./sessionHelper.js");
+const dataVizualizer = require("./dataVizualizer.js");
 
 let buildNav = () => {
     let categories = getCategories();
@@ -17,7 +17,7 @@ let buildNav = () => {
             //event.preventDefault();
 
             setCurrentCategory(category.id);
-            listProducts();
+            dataVizualizer.listProducts();
         });
 
         pageNav.appendChild(link);
@@ -30,4 +30,4 @@ let buildNav = () => {
     pageNav.appendChild(link);
 }
 
-export { buildNav }
+module.exports = { buildNav }

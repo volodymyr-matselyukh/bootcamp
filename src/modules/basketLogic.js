@@ -29,4 +29,4 @@ let saveBasketItems = (items) => {
     localStorage.setItem(basketItemsIdsListKey, JSON.stringify(items));
 }
 
-export { initCount, addToBasket, getBasketItems }
+module.exports = { initCount, addToBasket, getBasketItems }

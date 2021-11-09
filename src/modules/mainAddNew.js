@@ -1,6 +1,6 @@
-import { initCount } from "./basketLogic.js";
-import { buildNav } from "./navHelper.js";
-import { getNextProductId, addNewItem } from "./dataStore.js";
+const { initCount } = require("./basketLogic.js");
+const { buildNav } = require("./navHelper.js");
+const { getNextProductId, addNewItem } = require("./dataStore.js");
 
 document.addEventListener("DOMContentLoaded", () => {
     initCount();
@@ -21,5 +21,7 @@ let initFormSubmitHandler = () => {
         };
 
         addNewItem(newProduct);
+
+        form.reset();
     });
 }

@@ -9,4 +9,4 @@ let getCurrentCategory = () => {
     return Number.parseInt(currentCategory);
 }
 
-export { setCurrentCategory, getCurrentCategory }
+module.exports = { setCurrentCategory, getCurrentCategory }

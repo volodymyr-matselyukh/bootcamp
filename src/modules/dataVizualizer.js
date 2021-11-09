@@ -1,6 +1,6 @@
-import { getData } from "./dataStore.js";
-import { addToBasket, getBasketItems } from "./basketLogic.js";
-import { getCurrentCategory } from "./sessionHelper.js";
+const { getData } = require("./dataStore.js");
+const { addToBasket, getBasketItems } = require("./basketLogic.js");
+const { getCurrentCategory } = require ("./sessionHelper.js");
 
 let listProducts = () => {
     let itemsInBasket = getBasketItems();
@@ -66,4 +66,4 @@ let listBasketProducts = () => {
     });
 }
 
-export {listProducts, listBasketProducts};
+module.exports = {listProducts, listBasketProducts};

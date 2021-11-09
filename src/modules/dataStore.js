@@ -113,4 +113,4 @@ let getNextProductId = () => {
     return maxId + 1;
 }
 
-export { getData, addNewItem, getCategories, getNextProductId };
+module.exports = { getData, addNewItem, getCategories, getNextProductId };
