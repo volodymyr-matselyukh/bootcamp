@@ -2,20 +2,27 @@ const serverAddress = "http://localhost:3000";
 
 const getData = async () => {
     const response = await fetch(`${serverAddress}/items`, {
-        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json'
-          // 'Content-Type': 'application/x-www-form-urlencoded',
         },
       });
 
-      return await response.json();
+      try{
+        let jsonString = await response.json();
+        return JSON.parse(jsonString);
+      }
+      catch(e)
+      {
+        console.error("fetch failed", e);
+        throw e;
+      }
 }
 
 const addNewItem = async (formData) => {
     const response = await fetch(`${serverAddress}/items`, {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        body: formData // body data type must match "Content-Type" header
+        method: 'POST',
+        body: formData
       });
 
       return await response.json();

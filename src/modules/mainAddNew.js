@@ -19,14 +19,6 @@ const initFormSubmitHandler = () => {
             }
         }
 
-        // let newProduct = {
-        //     id: 0,
-        //     name: form["Name"].value.trim(),
-        //     description: form["Description"].value.trim(),
-        //     image: "images/" + form["Image"].value.replace(/^.*[\\\/]/, ''),
-        //     categoryId: Number.parseInt(form["Category"].value)
-        // };
-
         await addNewItem(formData);
 
         form.reset();

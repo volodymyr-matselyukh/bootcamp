@@ -36,12 +36,12 @@ const ProductItem = sqConnection.define('ProductItem', {
     }
 });
 
-ProductItem.sync({ force: true })
+ProductItem.sync({ force: false })
     .then(() => console.log("db sync success"))
     .catch(e => console.error("db sync", e));
 
-let getItems = () => {
-    return sqConnection.getItems();
+let getItems = async () => {
+    await ProductItem.findAll();
 }
 
 const addItem = async (item) => {
