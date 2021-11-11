@@ -26,7 +26,8 @@
             </nav>
             <main>
                 <div class="main-wrapper">
-                    <form name="AddNewProductForm" class="form" action="#" method="post" autocomplete="off" onsubmit="return false;">
+                    <form name="AddNewProductForm" class="form" action="#" method="post" 
+                        enctype="multipart/form-data" autocomplete="off" onsubmit="return false;">
                         <fieldset class="form__fieldset">
                             <legend>New item</legend>
                             <label class="form-label">
@@ -40,7 +41,7 @@
                             </label>
                             <label class="form-label">
                                 <span class="form-label__key">Category:</span> 
-                                <select class="form-label__input" name="Category" required>
+                                <select class="form-label__input" name="CategoryId" required>
                                     <option></option>
                                     <option value="1">Watches</option>
                                     <option value="2">Mobile phones</option>

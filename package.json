@@ -2,9 +2,15 @@
   "name": "internet-shop",
   "version": "1.0.0",
   "description": "test project",
-  "main": "index.js",
+  "main": "backend/app.js",
   "dependencies": {
-    "reload": "^3.2.0"
+    "busboy": "^0.3.1",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "reload": "^3.2.0",
+    "sequelize": "^6.9.0"
   },
   "devDependencies": {
     "@types/jest": "^27.0.2",
@@ -16,7 +22,8 @@
   "scripts": {
     "test": "jest",
     "build": "webpack",
-    "dev-server": "webpack serve"
+    "dev-server": "webpack serve",
+    "start": "node \\backend\\app.js"
   },
   "author": "Volodymyr Matseliukh",
   "license": "ISC"

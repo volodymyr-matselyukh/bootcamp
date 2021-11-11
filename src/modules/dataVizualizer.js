@@ -1,13 +1,13 @@
-const { getData } = require("./dataStore.js");
+const { getData } = require("./postgreService"); //require("./dataStore.js");
 const { addToBasket, getBasketItems } = require("./basketLogic.js");
 const { getCurrentCategory } = require ("./sessionHelper.js");
 
-let listProducts = () => {
+let listProducts = async () => {
     let itemsInBasket = getBasketItems();
 
     let categoryId = getCurrentCategory();
     
-    let items = getData().filter(item => item.categoryId === categoryId);
+    let items = await getData().filter(item => item.categoryId === categoryId);
     
     let itemsContainer = document.getElementById("ItemsContainer");
     let children = itemsContainer.querySelectorAll('.item') || [];
@@ -43,10 +43,10 @@ let listProducts = () => {
     });
 }
 
-let listBasketProducts = () => {
+let listBasketProducts = async () => {
     let itemsInBasket = getBasketItems();
     
-    let items = getData().filter(item => itemsInBasket.includes(item.id));
+    let items = await getData().filter(item => itemsInBasket.includes(item.id));
     
     let itemsContainer = document.getElementById("ItemsContainer");
     let children = itemsContainer.querySelectorAll('.item') || [];
