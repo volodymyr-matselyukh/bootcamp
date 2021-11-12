@@ -10,7 +10,7 @@ const getData = async () => {
 
       try{
         let jsonString = await response.json();
-        return JSON.parse(jsonString);
+        return jsonString;
       }
       catch(e)
       {

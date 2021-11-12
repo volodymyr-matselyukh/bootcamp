@@ -16,7 +16,7 @@ const port = 3000
 app.route("/items")
     .get(async (_, res) => {
         let items = await getItems();
-        res.send(items || []);
+        res.json(items);
     })
     .post((req, res) => {
         try{

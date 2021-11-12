@@ -24,7 +24,7 @@
     "test": "jest",
     "build": "webpack",
     "dev-server": "webpack serve",
-    "start": "node \\backend\\app.js"
+    "dev": "nodemon \\backend\\app.js"
   },
   "author": "Volodymyr Matseliukh",
   "license": "ISC"

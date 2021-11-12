@@ -4,6 +4,10 @@ const dataVizualizer = require("./dataVizualizer.js");
 
 let buildNav = () => {
     let categories = getCategories();
+    categories.unshift({
+        id: 0,
+        name: "All"
+    });
 
     let pageNav = document.getElementById("PageNavigation");
 
@@ -14,8 +18,6 @@ let buildNav = () => {
         let link = templateElement.content.firstChild;
 
         link.addEventListener("click", (event) => {
-            //event.preventDefault();
-
             setCurrentCategory(category.id);
             dataVizualizer.listProducts();
         });

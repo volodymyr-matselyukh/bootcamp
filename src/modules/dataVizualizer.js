@@ -7,7 +7,8 @@ let listProducts = async () => {
 
     let categoryId = getCurrentCategory();
     
-    let items = await getData().filter(item => item.categoryId === categoryId);
+    let data = await getData();
+    let items = categoryId === 0 ? data : data.filter(item => item.categoryid === categoryId);
     
     let itemsContainer = document.getElementById("ItemsContainer");
     let children = itemsContainer.querySelectorAll('.item') || [];
@@ -21,7 +22,7 @@ let listProducts = async () => {
         let itemTemplateCopy = itemTemplate.cloneNode(true);
         itemTemplateCopy.querySelector(".item-name").textContent = item.name;
         itemTemplateCopy.querySelector(".item-description").textContent = item.description;
-        itemTemplateCopy.querySelector(".item-image").setAttribute("src", item.image);
+        itemTemplateCopy.querySelector(".item-image").setAttribute("src", getImagePath(item.image));
         
         let addToBasketButton = itemTemplateCopy.querySelector(".item__button");
         
@@ -46,7 +47,8 @@ let listProducts = async () => {
 let listBasketProducts = async () => {
     let itemsInBasket = getBasketItems();
     
-    let items = await getData().filter(item => itemsInBasket.includes(item.id));
+    let data = await getData()
+    let items = data.filter(item => itemsInBasket.includes(item.id));
     
     let itemsContainer = document.getElementById("ItemsContainer");
     let children = itemsContainer.querySelectorAll('.item') || [];
@@ -60,10 +62,12 @@ let listBasketProducts = async () => {
         let itemTemplateCopy = itemTemplate.cloneNode(true);
         itemTemplateCopy.querySelector(".item-name").textContent = item.name;
         itemTemplateCopy.querySelector(".item-description").textContent = item.description;
-        itemTemplateCopy.querySelector(".item-image").setAttribute("src", item.image);
+        itemTemplateCopy.querySelector(".item-image").setAttribute("src", getImagePath(item.image));
 
         itemsContainer.appendChild(itemTemplateCopy);
     });
 }
+
+const getImagePath = imageName => `images/${imageName}`;
 
 module.exports = {listProducts, listBasketProducts};

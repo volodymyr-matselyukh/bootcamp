@@ -29,7 +29,7 @@ const ProductItem = sqConnection.define('ProductItem', {
         type: Sequelize.INTEGER
     },
     description: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
     },
     image: {
         type: Sequelize.STRING
@@ -41,7 +41,7 @@ ProductItem.sync({ force: false })
     .catch(e => console.error("db sync", e));
 
 let getItems = async () => {
-    await ProductItem.findAll();
+    return await ProductItem.findAll();
 }
 
 const addItem = async (item) => {
