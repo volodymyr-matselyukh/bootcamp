@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const Product = require("../models/Product");
+const { Product } = require("../models/Product");
 const { getBasketItems } = require("../modules/basketLogic");
 const { getData } = require("../modules/postgreService");
 const { listBasketProducts } = require("../modules/dataVizualizer.js");
