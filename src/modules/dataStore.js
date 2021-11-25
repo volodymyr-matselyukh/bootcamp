@@ -66,6 +66,17 @@ const data = [
     )
 ];
 
+const mydata = [
+    {
+        id: 1,
+        name:"iphone"
+    },
+    {
+        id: 2,
+        name:"samsung"
+    }
+];
+
 const itemsKey = "ItemsKey";
 
 let getData = () => {

@@ -37,7 +37,7 @@ class Basket extends HTMLElement {
       // Apply external styles to the shadow dom
       const linkElem = document.createElement('link');
       linkElem.setAttribute('rel', 'stylesheet');
-      linkElem.setAttribute('href', 'styles/basket.css');
+      linkElem.setAttribute('href', 'basket.css');
   
       // Attach the created element to the shadow dom
       shadow.appendChild(linkElem);
@@ -55,3 +55,4 @@ class Basket extends HTMLElement {
   
 /******/ })()
 ;
+//# sourceMappingURL=basket.js.map
