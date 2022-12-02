@@ -40,47 +40,13 @@
       }
   }
 
-  &__button {
-    margin-top: 5px;
-    text-decoration: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    color: white;
-    background-color: gray;
-    font-size: 1rem;
-    display: inline;
-    flex: 0 0 auto;
-    align-self: flex-end;
+  .button-group{
+	flex-direction: row-reverse;
 
-    &--primary {
-      background-color: @primaryColor;
-    }
-
-    &--added {
-      background-color: blue;
-    }
+	.button{
+		&--delete {
+			background-color: red;
+		}
+	}
   }
 }
-
-//-----------------DEMO Styles priority-----------------
-// .item {
-//   .item__description {
-//     color: yellow;
-
-//     &[aria-label="description"] {
-//       color: blue;
-//     }
-//   }
-// }
-
-// .item {
-//   p {
-//     &.item__description {
-//       color: pink;
-//     }
-//   }
-// }
-
-// #Description {
-//   color: green;
-// }

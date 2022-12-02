@@ -1,5 +1,5 @@
-const { getData } = require("./postgreService"); //require("./dataStore.js");
-const { addToBasket, getBasketItems } = require("./basketLogic.js");
+const { getData, deleteItem } = require("./postgreService"); //require("./dataStore.js");
+const { addToBasket, getBasketItems, removeFromBasket } = require("./basketLogic.js");
 const { getCurrentCategory } = require ("./sessionHelper.js");
 
 let listProducts = async () => {
@@ -24,21 +24,38 @@ let listProducts = async () => {
         itemTemplateCopy.querySelector(".item-description").textContent = item.description;
         itemTemplateCopy.querySelector(".item-image").setAttribute("src", getImagePath(item.image));
         
-        let addToBasketButton = itemTemplateCopy.querySelector(".item__button");
+        let addToBasketButton = itemTemplateCopy.querySelector(".button__add");
+		let addedToBasketLabel = itemTemplateCopy.querySelector(".label");
         
-        addToBasketButton.addEventListener("click", (event) => {
-            addToBasket(item.id);
-            event.currentTarget.textContent = "Added";
-            event.currentTarget.classList.remove("item__button--primary");
-            event.currentTarget.classList.add("item__button--added");
-        });
-
-        if(itemsInBasket.includes(item.id))
+		if(itemsInBasket.includes(item.id))
         {
-            addToBasketButton.textContent = "Added";
-            addToBasketButton.classList.remove("item__button--primary");
-            addToBasketButton.classList.add("item__button--added");
+            addToBasketButton.classList.toggle('hidden');
         }
+		else{
+			addedToBasketLabel.classList.toggle('hidden');
+
+			addToBasketButton.addEventListener("click", (event) => {
+				addToBasket(item.id);
+				event.currentTarget.textContent = "Added";
+				event.currentTarget.classList.toggle("hidden");
+				addedToBasketLabel.classList.toggle('hidden');
+			});
+		}
+
+		let deleteItemButton = itemTemplateCopy.querySelector('.button__delete');
+		deleteItemButton.addEventListener("click", async () => {
+			let confirmResult = confirm("Are you sure you want to delete this item?");
+			if(confirmResult){
+				try{
+					await deleteItem(item.id);
+					await listProducts();
+					removeFromBasket(item.id);
+				}
+				catch(e){
+					console.error('Error deleting product', e);
+				}
+			}
+		});
 
         itemsContainer.appendChild(itemTemplateCopy);
     });

@@ -40,7 +40,7 @@ ProductItem.sync({ force: false })
     .then(() => console.log("db sync success"))
     .catch(e => console.error("db sync", e));
 
-let getItems = async () => {
+const getItems = async () => {
     return await ProductItem.findAll();
 }
 
@@ -50,4 +50,10 @@ const addItem = async (item) => {
     .catch(e => console.error(e));
 }
 
-module.exports = { getItems, addItem }
+const deleteItem = async (itemId) => {
+	await ProductItem.destroy({
+		where: {id: itemId}
+	});
+}
+
+module.exports = { getItems, addItem, deleteItem }

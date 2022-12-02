@@ -30,20 +30,20 @@ let listProducts = async () => {
         itemTemplateCopy.querySelector(".item-description").textContent = item.description;
         itemTemplateCopy.querySelector(".item-image").setAttribute("src", getImagePath(item.image));
         
-        let addToBasketButton = itemTemplateCopy.querySelector(".item__button");
+        let addToBasketButton = itemTemplateCopy.querySelector(".button");
         
         addToBasketButton.addEventListener("click", (event) => {
             addToBasket(item.id);
             event.currentTarget.textContent = "Added";
-            event.currentTarget.classList.remove("item__button--primary");
-            event.currentTarget.classList.add("item__button--added");
+            event.currentTarget.classList.remove("button--primary");
+            event.currentTarget.classList.add("button--added");
         });
 
         if(itemsInBasket.includes(item.id))
         {
             addToBasketButton.textContent = "Added";
-            addToBasketButton.classList.remove("item__button--primary");
-            addToBasketButton.classList.add("item__button--added");
+            addToBasketButton.classList.remove("button--primary");
+            addToBasketButton.classList.add("button--added");
         }
 
         itemsContainer.appendChild(itemTemplateCopy);

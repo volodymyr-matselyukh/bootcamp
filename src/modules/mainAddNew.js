@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     initCount();
     buildNav();
     await initFormSubmitHandler();
+
+	resetCursor();
 });
 
 const initFormSubmitHandler = () => {
@@ -23,4 +25,15 @@ const initFormSubmitHandler = () => {
 
         form.reset();
     });
+}
+
+function resetCursor() { 
+	const textArea = document.querySelector("[name='Description']");
+
+	textArea.addEventListener('click', (e) => {
+		console.log('focus');
+		e.currentTarget.focus();
+		
+		e.currentTarget.selectionEnd = 1;
+	});
 }
