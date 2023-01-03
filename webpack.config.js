@@ -6,7 +6,7 @@ module.exports = {
         main: "./modules/main.js",
         mainAddNew: "./modules/mainAddNew.js",
         mainBasket: "./modules/mainBasket.js",
-        basket: "./basket/basket.js"
+        basket: "./components/basket/basket.js"
     },
     "output": {
         "path": __dirname + '/dist',

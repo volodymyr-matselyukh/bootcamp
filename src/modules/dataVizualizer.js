@@ -73,18 +73,40 @@ let listBasketProducts = async () => {
         itemsContainer.removeChild(children[i]);
     }
     
-    let itemTemplate = document.querySelector("#ItemTemplate").content;
+	let itemTemplate = document.querySelector("#ItemTemplate");
+
+	if(!itemTemplate)
+	{
+		return;
+	}
+
+    let itemTemplateContent = itemTemplate.content;
 
     items.forEach(item => {
-        let itemTemplateCopy = itemTemplate.cloneNode(true);
-        itemTemplateCopy.querySelector(".item-name").textContent = item.name;
+        let itemTemplateCopy = itemTemplateContent.cloneNode(true);
+        itemTemplateCopy.querySelector(".item__id").value = item.id;
+		itemTemplateCopy.querySelector(".item-name").textContent = item.name;
         itemTemplateCopy.querySelector(".item-description").textContent = item.description;
         itemTemplateCopy.querySelector(".item-image").setAttribute("src", getImagePath(item.image));
+		itemTemplateCopy.querySelector(".item__close-button").addEventListener("click", removeFromBasketOnUI);
 
         itemsContainer.appendChild(itemTemplateCopy);
     });
 }
 
 const getImagePath = imageName => `images/${imageName}`;
+
+const removeFromBasketOnUI = async (event) => {
+
+	const idInput = event.target.parentNode.querySelector('.item__id');
+
+	if(idInput)
+	{
+		const id = parseInt(idInput.value);
+		removeFromBasket(id);
+
+		await listBasketProducts();
+	}
+}
 
 module.exports = {listProducts, listBasketProducts};

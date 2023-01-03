@@ -23,8 +23,8 @@
   "scripts": {
     "test": "jest",
     "build": "webpack",
-    "dev-server": "webpack serve",
-    "dev": "nodemon \\backend\\app.js"
+    "front-end": "webpack serve",
+    "back-end": "nodemon \\backend\\app.js"
   },
   "author": "Volodymyr Matseliukh",
   "license": "ISC"

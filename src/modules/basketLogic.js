@@ -21,7 +21,7 @@ let addToBasket = (itemId) => {
 let removeFromBasket = (itemId) => {
 	let basketItems = getBasketItems();
 
-	basketItems = basketItems.filter(item => item.itemId !== itemId);
+	basketItems = basketItems.filter(id => id !== itemId);
 	saveBasketItems(basketItems);
 }
 

@@ -1,5 +1,5 @@
 {
-	"jest":{
+	"jest.autoRun":{
 		"autoEnable": false
 	}
 }

@@ -5,6 +5,7 @@
     <title>Internet shop. Add new item.</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="media.css">
     <script type="text/javascript" src="basket.js" defer></script>
     <script type="text/javascript" src="mainBasket.js" defer></script>
 </head>
@@ -27,6 +28,8 @@
             <main id="ItemsContainer">
                 <template id="ItemTemplate">
                     <div class="item">
+						<input class="item__id" type="hidden" value="" />
+						<img class="item__close-button button" src="./images/close.png" alt="remove item from basket" />
                         <img class="item__image item-image" src="images/img1.jpg" width="100" height="80" alt="mobile phone">
                         
                         <p class="key-value">
