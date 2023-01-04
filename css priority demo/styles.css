@@ -1,0 +1,21 @@
+a{
+    padding: 5px;
+	color: white;
+	text-decoration: none;
+}
+
+.outer-div .inner-div a{
+    background-color: green;
+}
+
+.inner-div a:active{
+    background-color: red;
+}
+
+.inner-div a[href^="https"]{
+    background-color: blue;
+}
+
+.outer-div a.link {
+    background-color: green;
+}

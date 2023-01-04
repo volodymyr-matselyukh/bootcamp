@@ -1,0 +1,31 @@
+{
+  "name": "internet-shop",
+  "version": "1.0.0",
+  "description": "test project",
+  "main": "backend/app.js",
+  "dependencies": {
+    "busboy": "^0.3.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "reload": "^3.2.0",
+    "sequelize": "^6.9.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "jest": "^27.3.1",
+    "webpack": "^5.63.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.4.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "webpack",
+    "front-end": "webpack serve",
+    "back-end": "nodemon \\backend\\app.js"
+  },
+  "author": "Volodymyr Matseliukh",
+  "license": "ISC"
+}

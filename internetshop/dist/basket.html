@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>Internet shop. Add new item.</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="media.css">
+    <script type="text/javascript" src="basket.js" defer></script>
+    <script type="text/javascript" src="mainBasket.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__wrapper">
+                <a class="header__logo" href="index.html">
+                    <span class="header__text">Home Page</span>
+                </a>
+                <div class="header__basket">
+                    <basket-label id="BasketElement" data-items-count="4"></basket-label>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <nav id="PageNavigation" class="nav">
+            </nav>
+            <main id="ItemsContainer">
+                <template id="ItemTemplate">
+                    <div class="item">
+						<input class="item__id" type="hidden" value="" />
+						<img class="item__close-button button" src="./images/close.png" alt="remove item from basket" />
+                        <img class="item__image item-image" src="images/img1.jpg" width="100" height="80" alt="mobile phone">
+                        
+                        <p class="key-value">
+                            <span class="key-value__key">Name:</span>
+                            <span class="key-value__value item-name"><b>Android 1</b></span>
+                        </p>
+                        <p class="item__description key-value">
+                            <span class="key-value__key">Description:</span>
+                            <span class="key-value__value item-description">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, atque necessitatibus. Sint voluptates totam sit debitis! Debitis sequi quaerat dolorem excepturi cumque odit ipsam at.
+                            </span>
+                        </p>
+                    </div>
+                </template>
+            </main>
+        </div>
+        <footer>
+            <div class="footer__text">
+                Footer
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

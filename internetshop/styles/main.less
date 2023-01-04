@@ -1,0 +1,144 @@
+// sourceMap: true, compress: true, out: ../dist/main.css
+
+@import 'variables.less';
+@import 'item.less';
+@import 'form.less';
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;	
+}
+
+.wrapper {
+	display: flex;
+	flex-flow: column;
+	min-height: 100vh;
+	max-height: 100vh;
+}
+
+.header {
+	background-color: @primaryColor;
+	flex: 0 0 100px;
+	display: flex;
+	justify-content: center;
+
+	&__logo {
+		text-decoration: none;
+	}
+
+	&__wrapper {
+		flex: 0 0 90%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__text {
+		flex: 0 0 auto;
+		color: white;
+		padding: 15px;
+		border: 2px rgb(146, 146, 255) dotted;
+	}
+
+	&__basket {
+		flex: 0 0 auto;
+	}
+}
+
+.container {
+	flex: 1 1 auto;
+	display: flex;
+	align-items: flex-start;
+	overflow: auto;
+}
+
+.nav {
+	width: 20%;
+	min-width: 200px;
+	background-color: @secondaryColor;
+	position: sticky;
+	top: 0px;
+
+	&__link {
+		display: block;
+
+		text-decoration: none;
+		padding: 5px;
+		color: black;
+
+		&:hover {
+			background-color: darken(rgba(@secondaryColor), 10%);
+		}
+
+		&--add-new {
+			background-color: gray;
+			color: white;
+			border-radius: 5px;
+		}
+	}
+}
+
+main {
+	width: 80%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+footer {
+	background-color: @footerColor;
+	flex: 0 0 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.button-group {
+	margin-top: 10px;
+	display: flex;
+	justify-content: space-between;
+
+	.button {
+		text-decoration: none;
+		border-radius: 5px;
+		padding: 5px 10px;
+		color: white;
+		background-color: gray;
+		font-size: 1rem;
+		display: inline-block;
+
+		&--primary {
+			background-color: @primaryColor;
+		}
+	}
+}
+
+.label {
+	font-size: 1rem;
+	color: green;
+	padding: 3px 0;
+	cursor: default;
+
+	i {
+		font-style: normal;
+		padding-right: 5px;
+	}
+}
+
+.hidden {
+	display: none !important;
+}
+
+.button {
+	&:hover {
+		-webkit-filter: brightness(80%);
+		-webkit-transition: all 0.1s ease;
+		-moz-transition: all 0.1s ease;
+		-o-transition: all 0.1s ease;
+		-ms-transition: all 0.1s ease;
+		transition: all 0.1s ease;
+		cursor: pointer;
+	}
+}
