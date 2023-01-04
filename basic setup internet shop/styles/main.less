@@ -1,0 +1,92 @@
+// sourceMap: true, compress: true
+
+@import 'variables.less';
+@import 'item.less';
+@import 'form.less';
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    //all: inherit;
+}
+
+.wrapper{
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+    max-height: 100vh;
+}
+
+.header{
+    background-color: @primaryColor;
+    flex: 0 0 100px;
+    display: flex;
+    justify-content: center;
+
+    &__logo{
+        text-decoration: none;
+    }
+
+    &__wrapper{
+        flex: 0 0 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__text{
+        flex: 0 0 auto;
+    }
+
+    &__basket{
+        flex: 0 0 auto;
+    }
+}
+
+.container{
+    flex: 1 1 auto;
+    display: flex;
+    align-items: flex-start;
+    overflow: auto;
+}
+
+.nav{
+    width: 20%;
+    background-color: @secondaryColor;
+    position: sticky;
+    top: 0px;
+
+    &__link{
+        display: block;
+        
+        text-decoration: none;
+        padding: 5px;
+        color: black;
+
+        &:hover{
+            background-color: darken(rgba(@secondaryColor), 10%);
+        }
+
+        &--add-new{
+            background-color: gray;
+            color:white;
+            border-radius: 5px;
+        }
+    }
+}
+
+main{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer{
+    background-color: @footerColor;
+    flex: 0 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

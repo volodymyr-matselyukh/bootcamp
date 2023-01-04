@@ -1,0 +1,82 @@
+//main: main.less
+
+@import "variables.less";
+
+.item {
+  color: @itemTextColor;
+  width: 32%;
+  max-height: 300px;
+  background-color: @itemColor;
+  font-size: 0.1px;
+  margin: 0 1% 1% 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+
+  .key-value{
+    font-size: 0.8rem;
+    flex: 1 1 auto;
+
+    &__key{
+      color: lighten(rgba(@itemTextColor), 10%);
+    }
+  }
+
+  &__image {
+    max-width: 160px;
+    max-height: 160px;
+    width: 100%;
+    height: auto;
+    flex: 0 0 auto;
+  }
+
+  &__description {
+    overflow: auto;
+    text-overflow: ellipsis;
+
+    &::selection {
+        background-color: black;
+        color: white;
+      }
+  }
+
+  &__button {
+    margin-top: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    background-color: gray;
+    font-size: 1rem;
+    display: inline;
+    flex: 0 0 auto;
+    align-self: flex-end;
+
+    &--primary {
+      background-color: @primaryColor;
+    }
+  }
+}
+
+//-----------------DEMO Styles priority-----------------
+// .item {
+//   .item__description {
+//     color: yellow;
+
+//     &[aria-label="description"] {
+//       color: blue;
+//     }
+//   }
+// }
+
+// .item {
+//   p {
+//     &.item__description {
+//       color: pink;
+//     }
+//   }
+// }
+
+// #Description {
+//   color: green;
+// }
