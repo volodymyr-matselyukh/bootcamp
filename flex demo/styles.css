@@ -1,0 +1,20 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.container {
+  font-size: 2rem;
+  color: white;
+}
+.container__item {
+  height: 100px;
+}
+.container__item--red {
+  background-color: red;
+}
+.container__item--green {
+  background-color: green;
+}
+.container__item--blue {
+  background-color: blue;
+}

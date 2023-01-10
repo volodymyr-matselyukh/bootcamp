@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.container {
+  display: flex;
+  font-size: 2rem;
+  color: white;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.container__item {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container__item--red {
+  background-color: red;
+  flex: 0 0 100px;
+  order: 1;
+}
+.container__item--green {
+  background-color: green;
+  flex: 0 0 80px;
+  order: 3;
+}
+.container__item--blue {
+  background-color: blue;
+  flex: 1 0 auto;
+  order: 2;
+}
