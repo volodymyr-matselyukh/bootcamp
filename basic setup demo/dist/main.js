@@ -1,2 +1,0 @@
-(()=>{"use strict";document.addEventListener("DOMContentLoaded",(()=>{console.log("loaded"),(()=>{const e=document.querySelector("main"),t=document.createElement("button");t.textContent="Click me",t.addEventListener("click",(()=>{console.log("button clicked")})),e.appendChild(t)})()}))})();
-//# sourceMappingURL=main.js.map

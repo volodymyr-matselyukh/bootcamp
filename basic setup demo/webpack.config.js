@@ -9,11 +9,11 @@ module.exports = {
 	},
 	output: {
 		"path": __dirname + '/dist',
-		"filename": "[name].js"
+		"filename": "index.js"
 	},
 	devServer: {
 		static: {
-			directory: path.join(__dirname, 'dist'),
+			directory: path.join(__dirname, 'dist')
 		}
 	},
 	devtool: "source-map"
