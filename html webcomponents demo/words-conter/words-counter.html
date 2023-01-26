@@ -1,0 +1,10 @@
+<script type="text/javascript" src="/words-conter/words-counter.js"></script>
+
+<template id="WordsCounterTemplate">
+	<link href="/words-conter/words-counter.css" type="text/css" rel="stylesheet">
+	<p id="Content" class="words-counter"></p>
+	&nbsp;
+	<slot name="startingBracket">(</slot>
+		<span id="WordsCount"></span>
+	<slot name="endingBracket">)</slot>
+</template>
