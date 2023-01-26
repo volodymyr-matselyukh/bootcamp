@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+	background-color: azure;
+}
+
+.sticky-header, .footer{
+    height: 100px;
+    background-color: beige;
+	position: sticky;
+	top: 0;
+}
+
+.sticky-header{
+	left: 300px;
+	width: 300px;
+}
+
+.main-div{
+	margin-top: 60px;
+	/* position: relative; */
+    height: 1500px;
+    background-color: bisque;
+}
+
+.static-div{
+	width: 200px;
+	height: 100px;
+	top: 70px;
+	left: 50px;
+}
+
+.relative-div{
+	position: relative;
+	/*left: 50px;*/
+	/* top: 20px; */
+    height: 80px;
+    width: 250px;
+    background-color: brown;
+}
+
+.absolute-div{
+    height: 80px;
+    width: 150px;
+    background-color: coral;
+    position: absolute;
+	top: 300px;
+    /* z-index: 100; */
+}
+
+.fixed-div{
+	position: fixed;
+	top: 500px;
+
+	height: 80px;
+	width: 100px;
+	background-color: green;
+}
