@@ -8,7 +8,7 @@ a{
     background-color: green;
 }
 
-.inner-div a:active{
+.outer-div .inner-div a:active{
     background-color: red;
 }
 
@@ -17,5 +17,5 @@ a{
 }
 
 .outer-div a.link {
-    background-color: green;
+    background-color: brown;
 }
