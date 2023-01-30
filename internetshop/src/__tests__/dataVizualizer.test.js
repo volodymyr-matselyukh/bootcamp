@@ -17,9 +17,11 @@ describe("DataVizualizer listBasketProducts", () => {
             <div id="ItemsContainer">
                 <template id="ItemTemplate">
                     <div class="item">
-                        <span class="item-name"></span>
+						<input type="hidden" class="item__id"></span>
+						<span class="item-name"></span>
                         <span class="item-description"></div>
                         <img class="item-image">
+						<button class="item__close-button"></button>
                     </div>
                 </template>
             </div>
